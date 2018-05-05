@@ -1,0 +1,11 @@
+<form #citForm="ngForm" (ngSubmit)="onSubmit()">
+  <label for="citation">Enter the citation</label>
+  <input type="text" id="citation" name="citation" required [(ngModel)]="citation">
+  <input type="submit">
+</form>
+<div *ngIf="record">
+  <app-record [record]="record"></app-record>
+</div>
+<div *ngIf="noRecord">
+  <h2>No record found</h2>
+</div>

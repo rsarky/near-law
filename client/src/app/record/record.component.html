@@ -1,0 +1,106 @@
+<h1>Record Found</h1>
+<button (click)="toggle()">Toggle Details</button>
+<button (click)="Edit()">Edit</button>
+<div *ngIf="showDetails">
+<h2>Tribunal</h2>
+<hr>
+<p>{{record.tribunal}}</p>
+<h2>Judge Name</h2>
+<hr>
+<p>{{record.Judge_name}}</p>
+<h2>Cited No</h2>
+<hr>
+<p>{{record.citedNo}}</p>
+<h2>Cases Cited</h2>
+<hr>
+<p>{{record.cases_cited}}</p>
+<h2>Citation</h2>
+<hr>
+<p>{{record.Citation}}</p>
+<h2>Case No</h2>
+<hr>
+<p>{{record.Case_No}}</p>
+<h2>Adv Respondent</h2>
+<hr>
+<p>{{record.Adv_respondent}}</p>
+<h2>Petitioner</h2>
+<hr>
+<p>{{record.Petitioner}}</p>
+<h2>Judgement</h2>
+<hr>
+<p>{{record.judgement}}</p>
+<h2>Date</h2>
+<hr>
+<p>{{record.Date}}</p>
+<h2>Respondent</h2>
+<hr>
+<p>{{record.Respondent}}</p>
+<h2>File URL</h2>
+<hr>
+<p>{{record.fileurl}}</p>
+<h2>HeadNote Keywords</h2>
+<hr>
+<p>{{record.HeadNote_keywords}}</p>
+<h2>Decision</h2>
+<hr>
+<p>{{record.decision}}</p>
+<h2>Adv Petitioner</h2>
+<hr>
+<p>{{record.Adv_petitioner}}</p>
+</div>
+<div *ngIf="edit">
+  <br><br>
+  <h2>Form</h2>
+  <hr>
+  <form (ngSubmit)="onSubmit()">
+    <label for="tribunal">Tribunal</label>
+    <input type="text" name="tribunal" id="tribunal" [(ngModel)]="updatedRecord.tribunal">
+    <br><br>
+    <label for="Judge_name">Judge Name</label>
+    <input type="text" name="Judge_name" id="Judge_name" [(ngModel)]="updatedRecord.Judge_name">
+    <br><br>
+    <label for="Court">Court</label>
+    <input type="text" name="Court" id="Court" [(ngModel)]="updatedRecord.Court">
+    <br><br>
+    <label for="citedNo">Cited No</label>
+    <input type="number" name="citedNo" id="citedNo" [(ngModel)]="updatedRecord.citedNo">
+    <br><br>
+    <label for="cases_cited">Cases Cited</label>
+    <input type="text" name="cases_cited" id="cases_cited" [(ngModel)]="updatedRecord.cases_cited">
+    <br><br>
+    <label for="Citation">Citation</label>
+    <input type="text" name="Citation" id="Citation" [(ngModel)]="updatedRecord.Citation">
+    <br><br>
+    <label for="Case_No">Case No</label>
+    <input type="text" name="Case_No" id="Case_No" [(ngModel)]="updatedRecord.Case_No">
+    <br><br>
+    <label for="Adv_respondent">Adv Respondent</label>
+    <input type="text" name="Adv_respondent" id="Adv_respondent" [(ngModel)]="updatedRecord.Adv_respondent">
+    <br><br>
+    <label for="Petitioner">Petitioner</label>
+    <input type="text" name="Petitioner" id="Petitioner" [(ngModel)]="updatedRecord.Petitioner">
+    <br><br>
+    <label for="judgment">Judgement</label>
+    <input type="text" name="judgment" id="judgment" [(ngModel)]="updatedRecord.judgement">
+    <br><br>
+    <label for="Date">Date</label>
+    <input type="text" name="Date" id="Date" [(ngModel)]="updatedRecord.Date">
+    <br><br>
+    <label for="Respondent">Respondent</label>
+    <input type="text" name="Respondent" id="Respondent" [(ngModel)]="updatedRecord.Respondent">
+    <br><br>
+    <label for="fileurl">File Url</label>
+    <input type="text" name="fileurl" id="fileurl" [(ngModel)]="updatedRecord.fileurl">
+    <br><br>
+    <label for="HeadNote_keywords">Headnote Keywords</label>
+    <input type="text" name="HeadNote_keywords" id="HeadNote_keywords" [(ngModel)]="updatedRecord.HeadNote_keywords">
+    <br><br>
+    <label for="decision">Decision</label>
+    <input type="text" name="decision" id="decision" [(ngModel)]="updatedRecord.decision">
+    <br><br>
+    <label for="Adv_petitioner">Adv Petitioner</label>
+    <input type="text" name="Adv_petitioner" id="Adv_petitioner" [(ngModel)]="updatedRecord.Adv_petitioner">
+    <br><br>
+    <input type="submit" name="submit">
+  </form>
+</div>
