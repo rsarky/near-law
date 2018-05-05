@@ -1,0 +1,57 @@
+Task description
+============
+
+1) Build a webpage that shows the data in separate fields from the API link below:
+(field examples are "citation", "cases_cited", etc. - get all the fields)
+
+http://34.217.226.151:8000/nearlaw/getTESTdata/1
+
+2) Every record to be referenced by the "citation" field as primary key.
+Dropdown menu on top would show the entire contents of that record. 
+
+3) After selecting the citation (record), user would have option to click "Edit" button
+which would allow the json input for that record to become editable.
+
+4) After editing, user should be able to "Save" the data for that record. 
+
+5) Saving would overwrite the existing data in that record on the back-end db.
+
+6) No delete function is required to be enabled
+
+7) Extra validation: "citation" field can't be changed at all.  It is not editable.
+
+8) All other fields can be changed but should not be null  (0 characters)
+
+
+
+Rules
+====
+
+1) Only 1 record of data is required to be editable at one time.
+
+2) You have to use MongoDB for backend database (if you require any).
+
+3) You have to use the API link specified for getting the data.
+
+4) Implementation language = Javascript 
+
+5) jquery and other JS opensource libs are allowed.
+
+
+
+Please send me the live code on anywhere (jsfiddle, plnkr, etc.) or your own page.
+
+A successful response would have 4 things:
+
+1) Code URL - live and working
+
+2) Code files that compile
+
+along with a reporting of
+
+1) Time taken
+
+2) Lines of Code
+
+
+Thanks and Best of Luck

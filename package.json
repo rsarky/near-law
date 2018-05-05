@@ -1,0 +1,21 @@
+{
+  "name": "near-law",
+  "version": "1.0.0",
+  "description": "Programming Assignment for near-law",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohit Sarkar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongojs": "^2.5.0",
+    "mongoose": "^5.0.17"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}
