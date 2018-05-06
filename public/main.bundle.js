@@ -89,9 +89,10 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fetch_records_service__ = __webpack_require__("./src/app/fetch-records.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("./src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__record_record_component__ = __webpack_require__("./src/app/record/record.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__update_record_service__ = __webpack_require__("./src/app/update-record.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("./src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__record_record_component__ = __webpack_require__("./src/app/record/record.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -105,22 +106,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__record_record_component__["a" /* RecordComponent */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__record_record_component__["a" /* RecordComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */]
+                __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_3__fetch_records_service__["a" /* FetchRecordsService */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__fetch_records_service__["a" /* FetchRecordsService */],
+                __WEBPACK_IMPORTED_MODULE_4__update_record_service__["a" /* UpdateRecordService */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -170,21 +175,6 @@ var FetchRecordsService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/record.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Record; });
-var Record = /** @class */ (function () {
-    function Record() {
-    }
-    return Record;
-}());
-
-
-
-/***/ }),
-
 /***/ "./src/app/record/record.component.css":
 /***/ (function(module, exports) {
 
@@ -195,7 +185,7 @@ module.exports = ""
 /***/ "./src/app/record/record.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Record Found</h1>\n<button (click)=\"toggle()\">Toggle Details</button>\n<button (click)=\"Edit()\">Edit</button>\n<div *ngIf=\"showDetails\">\n<h2>Tribunal</h2>\n<hr>\n<p>{{record.tribunal}}</p>\n<h2>Judge Name</h2>\n<hr>\n<p>{{record.Judge_name}}</p>\n<h2>Cited No</h2>\n<hr>\n<p>{{record.citedNo}}</p>\n<h2>Cases Cited</h2>\n<hr>\n<p>{{record.cases_cited}}</p>\n<h2>Citation</h2>\n<hr>\n<p>{{record.Citation}}</p>\n<h2>Case No</h2>\n<hr>\n<p>{{record.Case_No}}</p>\n<h2>Adv Respondent</h2>\n<hr>\n<p>{{record.Adv_respondent}}</p>\n<h2>Petitioner</h2>\n<hr>\n<p>{{record.Petitioner}}</p>\n<h2>Judgement</h2>\n<hr>\n<p>{{record.judgement}}</p>\n<h2>Date</h2>\n<hr>\n<p>{{record.Date}}</p>\n<h2>Respondent</h2>\n<hr>\n<p>{{record.Respondent}}</p>\n<h2>File URL</h2>\n<hr>\n<p>{{record.fileurl}}</p>\n<h2>HeadNote Keywords</h2>\n<hr>\n<p>{{record.HeadNote_keywords}}</p>\n<h2>Decision</h2>\n<hr>\n<p>{{record.decision}}</p>\n<h2>Adv Petitioner</h2>\n<hr>\n<p>{{record.Adv_petitioner}}</p>\n</div>\n<div *ngIf=\"edit\">\n  <br><br>\n  <h2>Form</h2>\n  <hr>\n  <form (ngSubmit)=\"onSubmit()\">\n    <label for=\"tribunal\">Tribunal</label>\n    <input type=\"text\" name=\"tribunal\" id=\"tribunal\" [(ngModel)]=\"updatedRecord.tribunal\">\n    <br><br>\n    <label for=\"Judge_name\">Judge Name</label>\n    <input type=\"text\" name=\"Judge_name\" id=\"Judge_name\" [(ngModel)]=\"updatedRecord.Judge_name\">\n    <br><br>\n    <label for=\"Court\">Court</label>\n    <input type=\"text\" name=\"Court\" id=\"Court\" [(ngModel)]=\"updatedRecord.Court\">\n    <br><br>\n    <label for=\"citedNo\">Cited No</label>\n    <input type=\"number\" name=\"citedNo\" id=\"citedNo\" [(ngModel)]=\"updatedRecord.citedNo\">\n    <br><br>\n    <label for=\"cases_cited\">Cases Cited</label>\n    <input type=\"text\" name=\"cases_cited\" id=\"cases_cited\" [(ngModel)]=\"updatedRecord.cases_cited\">\n    <br><br>\n    <label for=\"Citation\">Citation</label>\n    <input type=\"text\" name=\"Citation\" id=\"Citation\" [(ngModel)]=\"updatedRecord.Citation\">\n    <br><br>\n    <label for=\"Case_No\">Case No</label>\n    <input type=\"text\" name=\"Case_No\" id=\"Case_No\" [(ngModel)]=\"updatedRecord.Case_No\">\n    <br><br>\n    <label for=\"Adv_respondent\">Adv Respondent</label>\n    <input type=\"text\" name=\"Adv_respondent\" id=\"Adv_respondent\" [(ngModel)]=\"updatedRecord.Adv_respondent\">\n    <br><br>\n    <label for=\"Petitioner\">Petitioner</label>\n    <input type=\"text\" name=\"Petitioner\" id=\"Petitioner\" [(ngModel)]=\"updatedRecord.Petitioner\">\n    <br><br>\n    <label for=\"judgment\">Judgement</label>\n    <input type=\"text\" name=\"judgment\" id=\"judgment\" [(ngModel)]=\"updatedRecord.judgement\">\n    <br><br>\n    <label for=\"Date\">Date</label>\n    <input type=\"text\" name=\"Date\" id=\"Date\" [(ngModel)]=\"updatedRecord.Date\">\n    <br><br>\n    <label for=\"Respondent\">Respondent</label>\n    <input type=\"text\" name=\"Respondent\" id=\"Respondent\" [(ngModel)]=\"updatedRecord.Respondent\">\n    <br><br>\n    <label for=\"fileurl\">File Url</label>\n    <input type=\"text\" name=\"fileurl\" id=\"fileurl\" [(ngModel)]=\"updatedRecord.fileurl\">\n    <br><br>\n    <label for=\"HeadNote_keywords\">Headnote Keywords</label>\n    <input type=\"text\" name=\"HeadNote_keywords\" id=\"HeadNote_keywords\" [(ngModel)]=\"updatedRecord.HeadNote_keywords\">\n    <br><br>\n    <label for=\"decision\">Decision</label>\n    <input type=\"text\" name=\"decision\" id=\"decision\" [(ngModel)]=\"updatedRecord.decision\">\n    <br><br>\n    <label for=\"Adv_petitioner\">Adv Petitioner</label>\n    <input type=\"text\" name=\"Adv_petitioner\" id=\"Adv_petitioner\" [(ngModel)]=\"updatedRecord.Adv_petitioner\">\n    <br><br>\n    <input type=\"submit\" name=\"submit\">\n  </form>\n</div>"
+module.exports = "<h1>Record Found</h1>\n<button (click)=\"toggle()\">Toggle Details</button>\n<button (click)=\"Edit()\">Edit</button>\n<div *ngIf=\"showDetails\">\n<h2>Tribunal</h2>\n<hr>\n<p>{{record.tribunal}}</p>\n<h2>Judge Name</h2>\n<hr>\n<p>{{record.Judge_name}}</p>\n<h2>Cited No</h2>\n<hr>\n<p>{{record.citedNo}}</p>\n<h2>Cases Cited</h2>\n<hr>\n<p>{{record.cases_cited}}</p>\n<h2>Citation</h2>\n<hr>\n<p>{{record.Citation}}</p>\n<h2>Case No</h2>\n<hr>\n<p>{{record.Case_No}}</p>\n<h2>Adv Respondent</h2>\n<hr>\n<p>{{record.Adv_respondent}}</p>\n<h2>Petitioner</h2>\n<hr>\n<p>{{record.Petitioner}}</p>\n<h2>Judgement</h2>\n<hr>\n<p>{{record.judgement}}</p>\n<h2>Date</h2>\n<hr>\n<p>{{record.Date}}</p>\n<h2>Respondent</h2>\n<hr>\n<p>{{record.Respondent}}</p>\n<h2>File URL</h2>\n<hr>\n<p>{{record.fileurl}}</p>\n<h2>HeadNote Keywords</h2>\n<hr>\n<p>{{record.HeadNote_keywords}}</p>\n<h2>Decision</h2>\n<hr>\n<p>{{record.decision}}</p>\n<h2>Adv Petitioner</h2>\n<hr>\n<p>{{record.Adv_petitioner}}</p>\n</div>\n<div *ngIf=\"edit\">\n  <br><br>\n  <h2>Form</h2>\n  <hr>\n  <h3> All fields must turn green for form to be submitted.</h3>\n  <form (ngSubmit)=\"onSubmit()\" #recordForm=\"ngForm\">\n    <label for=\"tribunal\">Tribunal</label>\n    <input type=\"text\" name=\"tribunal\" id=\"tribunal\" [(ngModel)]=\"updatedRecord.tribunal\" required>\n    <br><br>\n    <label for=\"Judge_name\">Judge Name</label>\n    <input type=\"text\" name=\"Judge_name\" id=\"Judge_name\" [(ngModel)]=\"updatedRecord.Judge_name\" required>\n    <br><br>\n    <label for=\"Court\">Court</label>\n    <input type=\"text\" name=\"Court\" id=\"Court\" [(ngModel)]=\"updatedRecord.Court\" required>\n    <br><br>\n    <label for=\"citedNo\">Cited No</label>\n    <input type=\"number\" name=\"citedNo\" id=\"citedNo\" [(ngModel)]=\"updatedRecord.citedNo\" required>\n    <br><br>\n    <label for=\"cases_cited\">Cases Cited</label>\n    <input type=\"text\" name=\"cases_cited\" id=\"cases_cited\" [(ngModel)]=\"updatedRecord.cases_cited\" required>\n    <br><br>\n    <label for=\"Citation\">Citation</label>\n    <input type=\"text\" name=\"Citation\" id=\"Citation\" [(ngModel)]=\"updatedRecord.Citation\" readonly>\n    <br><br>\n    <label for=\"Case_No\">Case No</label>\n    <input type=\"text\" name=\"Case_No\" id=\"Case_No\" [(ngModel)]=\"updatedRecord.Case_No\" required>\n    <br><br>\n    <label for=\"Adv_respondent\">Adv Respondent</label>\n    <input type=\"text\" name=\"Adv_respondent\" id=\"Adv_respondent\" [(ngModel)]=\"updatedRecord.Adv_respondent\" required>\n    <br><br>\n    <label for=\"Petitioner\">Petitioner</label>\n    <input type=\"text\" name=\"Petitioner\" id=\"Petitioner\" [(ngModel)]=\"updatedRecord.Petitioner\" required>\n    <br><br>\n    <label for=\"judgment\">Judgement</label>\n    <input type=\"text\" name=\"judgment\" id=\"judgment\" [(ngModel)]=\"updatedRecord.judgement\" required>\n    <br><br>\n    <label for=\"Date\">Date</label>\n    <input type=\"text\" name=\"Date\" id=\"Date\" [(ngModel)]=\"updatedRecord.Date\" required>\n    <br><br>\n    <label for=\"Respondent\">Respondent</label>\n    <input type=\"text\" name=\"Respondent\" id=\"Respondent\" [(ngModel)]=\"updatedRecord.Respondent\" required>\n    <br><br>\n    <label for=\"fileurl\">File Url</label>\n    <input type=\"text\" name=\"fileurl\" id=\"fileurl\" [(ngModel)]=\"updatedRecord.fileurl\" required>\n    <br><br>\n    <label for=\"HeadNote_keywords\">Headnote Keywords</label>\n    <input type=\"text\" name=\"HeadNote_keywords\" id=\"HeadNote_keywords\" [(ngModel)]=\"updatedRecord.HeadNote_keywords\" required>\n    <br><br>\n    <label for=\"decision\">Decision</label>\n    <input type=\"text\" name=\"decision\" id=\"decision\" [(ngModel)]=\"updatedRecord.decision\" required>\n    <br><br>\n    <label for=\"Adv_petitioner\">Adv Petitioner</label>\n    <input type=\"text\" name=\"Adv_petitioner\" id=\"Adv_petitioner\" [(ngModel)]=\"updatedRecord.Adv_petitioner\" required>\n    <br><br>\n    <input type=\"submit\" name=\"submit\" [disabled]=\"!recordForm.form.valid\">\n  </form>\n</div>"
 
 /***/ }),
 
@@ -205,7 +195,7 @@ module.exports = "<h1>Record Found</h1>\n<button (click)=\"toggle()\">Toggle Det
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecordComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__record__ = __webpack_require__("./src/app/record.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__update_record_service__ = __webpack_require__("./src/app/update-record.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -218,7 +208,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var RecordComponent = /** @class */ (function () {
-    function RecordComponent() {
+    function RecordComponent(updateRecord) {
+        this.updateRecord = updateRecord;
         this.showDetails = false;
         this.edit = false;
     }
@@ -234,11 +225,17 @@ var RecordComponent = /** @class */ (function () {
         this.edit = true;
     };
     RecordComponent.prototype.onSubmit = function () {
+        var _this = this;
         this.edit = false;
+        console.log(this.updatedRecord);
+        this.updateRecord.update(this.updatedRecord).map(function (data) { return data; }).subscribe(function (record) {
+            _this.record = record;
+            _this.showDetails = true;
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__record__["a" /* Record */])
+        __metadata("design:type", Object)
     ], RecordComponent.prototype, "record", void 0);
     RecordComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -246,9 +243,53 @@ var RecordComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/record/record.component.html"),
             styles: [__webpack_require__("./src/app/record/record.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__update_record_service__["a" /* UpdateRecordService */]])
     ], RecordComponent);
     return RecordComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/update-record.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateRecordService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var httpOptions = {
+    headers: new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]({
+        'Content-Type': 'application/json',
+    })
+};
+var UpdateRecordService = /** @class */ (function () {
+    function UpdateRecordService(http) {
+        this.http = http;
+        this.Url = 'http://localhost:3000/api/';
+    }
+    UpdateRecordService.prototype.update = function (record) {
+        this.Url = this.Url + encodeURIComponent(record.Citation.trim());
+        return this.http.put(this.Url, record, httpOptions);
+    };
+    UpdateRecordService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], UpdateRecordService);
+    return UpdateRecordService;
 }());
 
 

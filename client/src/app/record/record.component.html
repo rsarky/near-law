@@ -52,55 +52,56 @@
   <br><br>
   <h2>Form</h2>
   <hr>
-  <form (ngSubmit)="onSubmit()">
+  <h3> All fields must turn green for form to be submitted.</h3>
+  <form (ngSubmit)="onSubmit()" #recordForm="ngForm">
     <label for="tribunal">Tribunal</label>
-    <input type="text" name="tribunal" id="tribunal" [(ngModel)]="updatedRecord.tribunal">
+    <input type="text" name="tribunal" id="tribunal" [(ngModel)]="updatedRecord.tribunal" required>
     <br><br>
     <label for="Judge_name">Judge Name</label>
-    <input type="text" name="Judge_name" id="Judge_name" [(ngModel)]="updatedRecord.Judge_name">
+    <input type="text" name="Judge_name" id="Judge_name" [(ngModel)]="updatedRecord.Judge_name" required>
     <br><br>
     <label for="Court">Court</label>
-    <input type="text" name="Court" id="Court" [(ngModel)]="updatedRecord.Court">
+    <input type="text" name="Court" id="Court" [(ngModel)]="updatedRecord.Court" required>
     <br><br>
     <label for="citedNo">Cited No</label>
-    <input type="number" name="citedNo" id="citedNo" [(ngModel)]="updatedRecord.citedNo">
+    <input type="number" name="citedNo" id="citedNo" [(ngModel)]="updatedRecord.citedNo" required>
     <br><br>
     <label for="cases_cited">Cases Cited</label>
-    <input type="text" name="cases_cited" id="cases_cited" [(ngModel)]="updatedRecord.cases_cited">
+    <input type="text" name="cases_cited" id="cases_cited" [(ngModel)]="updatedRecord.cases_cited" required>
     <br><br>
     <label for="Citation">Citation</label>
-    <input type="text" name="Citation" id="Citation" [(ngModel)]="updatedRecord.Citation">
+    <input type="text" name="Citation" id="Citation" [(ngModel)]="updatedRecord.Citation" readonly>
     <br><br>
     <label for="Case_No">Case No</label>
-    <input type="text" name="Case_No" id="Case_No" [(ngModel)]="updatedRecord.Case_No">
+    <input type="text" name="Case_No" id="Case_No" [(ngModel)]="updatedRecord.Case_No" required>
     <br><br>
     <label for="Adv_respondent">Adv Respondent</label>
-    <input type="text" name="Adv_respondent" id="Adv_respondent" [(ngModel)]="updatedRecord.Adv_respondent">
+    <input type="text" name="Adv_respondent" id="Adv_respondent" [(ngModel)]="updatedRecord.Adv_respondent" required>
     <br><br>
     <label for="Petitioner">Petitioner</label>
-    <input type="text" name="Petitioner" id="Petitioner" [(ngModel)]="updatedRecord.Petitioner">
+    <input type="text" name="Petitioner" id="Petitioner" [(ngModel)]="updatedRecord.Petitioner" required>
     <br><br>
     <label for="judgment">Judgement</label>
-    <input type="text" name="judgment" id="judgment" [(ngModel)]="updatedRecord.judgement">
+    <input type="text" name="judgment" id="judgment" [(ngModel)]="updatedRecord.judgement" required>
     <br><br>
     <label for="Date">Date</label>
-    <input type="text" name="Date" id="Date" [(ngModel)]="updatedRecord.Date">
+    <input type="text" name="Date" id="Date" [(ngModel)]="updatedRecord.Date" required>
     <br><br>
     <label for="Respondent">Respondent</label>
-    <input type="text" name="Respondent" id="Respondent" [(ngModel)]="updatedRecord.Respondent">
+    <input type="text" name="Respondent" id="Respondent" [(ngModel)]="updatedRecord.Respondent" required>
     <br><br>
     <label for="fileurl">File Url</label>
-    <input type="text" name="fileurl" id="fileurl" [(ngModel)]="updatedRecord.fileurl">
+    <input type="text" name="fileurl" id="fileurl" [(ngModel)]="updatedRecord.fileurl" required>
     <br><br>
     <label for="HeadNote_keywords">Headnote Keywords</label>
-    <input type="text" name="HeadNote_keywords" id="HeadNote_keywords" [(ngModel)]="updatedRecord.HeadNote_keywords">
+    <input type="text" name="HeadNote_keywords" id="HeadNote_keywords" [(ngModel)]="updatedRecord.HeadNote_keywords" required>
     <br><br>
     <label for="decision">Decision</label>
-    <input type="text" name="decision" id="decision" [(ngModel)]="updatedRecord.decision">
+    <input type="text" name="decision" id="decision" [(ngModel)]="updatedRecord.decision" required>
     <br><br>
     <label for="Adv_petitioner">Adv Petitioner</label>
-    <input type="text" name="Adv_petitioner" id="Adv_petitioner" [(ngModel)]="updatedRecord.Adv_petitioner">
+    <input type="text" name="Adv_petitioner" id="Adv_petitioner" [(ngModel)]="updatedRecord.Adv_petitioner" required>
     <br><br>
-    <input type="submit" name="submit">
+    <input type="submit" name="submit" [disabled]="!recordForm.form.valid">
   </form>
 </div>
